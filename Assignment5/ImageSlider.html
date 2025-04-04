@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Image Slider</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fafafa;
+      padding: 20px;
+      text-align: center;
+    }
+    #slider {
+      width: 600px;
+      height: 400px;
+      margin: 30px auto;
+      overflow: hidden;
+    }
+    #slider img {
+      width: 600px;
+      height: 400px;
+      object-fit: cover;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    .nav-buttons {
+      margin-top: 10px;
+    }
+    .nav-buttons button {
+      background: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 4px;
+      margin: 0 5px;
+    }
+    .nav-buttons button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Image Slider</h1>
+  <div id="slider">
+    <img id="slideImage" src="" alt="Slider Image">
+  </div>
+  <div class="nav-buttons">
+    <button id="prev">Previous</button>
+    <button id="next">Next</button>
+  </div>
+
+  <script>
+    // Array of image URLs
+    const images = [
+      'https://repository-images.githubusercontent.com/688590848/55c4a0d2-7701-47a9-9844-fe723f636199',
+      'https://www.infoworld.com/wp-content/uploads/2025/03/2238873-0-40258000-1742376859-what-is-cloud-computing.jpg?quality=50&strip=all&w=1024',
+      'https://store-images.s-microsoft.com/image/apps.26747.14287819761523024.ce8fba94-2426-4aa0-8617-d034156fb5e2.1d384ea6-eb3c-4eea-b7ae-f206ea061b2f',
+      'https://images.unsplash.com/photo-1493612276216-ee3925520721?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmFuZG9tfGVufDB8fDB8fHww',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAIYyC5rNpzP8nGx0xpl4VocvB-qPF2yaug&s',
+      'https://static.squarespace.com/static/53c631e4e4b0c4d68989cbef/540c893ee4b04215b3085eaf/540c89a0e4b04215b3088b15/1407183400000/DSC1195.jpg?format=original',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-gdvychFZhzdnSYqNgWOdB4lMYoYRj8s1yQ&s'
+    ];
+
+    let currentIndex = 0;
+    const slideImage = document.getElementById('slideImage');
+    const prevBtn = document.getElementById('prev');
+    const nextBtn = document.getElementById('next');
+
+    // Display img on current index
+    function showImage(index) {
+      slideImage.src = images[index];
+    }
+
+    // next image
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage(currentIndex);
+    });
+
+    // previous image
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showImage(currentIndex);
+    });
+
+    // first image
+    showImage(currentIndex);
+  </script>
+</body>
+</html>
