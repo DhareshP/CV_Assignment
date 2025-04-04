@@ -66,7 +66,8 @@
   <body>
     <h1>My To-Do List</h1>
     <div style="text-align: center;">
-      <input type="text" id="taskInput" placeholder="Add new task">
+      <input type="text" id="taskInput" placeholder="Add task">
+
       <button id="addTaskBtn">Add</button>
     </div>
     <ul id="taskList"></ul>
@@ -76,17 +77,21 @@
       const addBtn = document.getElementById('addTaskBtn');
       const list = document.getElementById('taskList');
       
+      //add new task on button click
       addBtn.addEventListener('click', function() {
         const text = input.value.trim();
         if (!text) return;
         
+        //display in list
         const li = document.createElement('li');
         li.className = 'task';
         
+        // hold task text
         const span = document.createElement('span');
         span.textContent = text;
         li.appendChild(span);
         
+        //remove task button
         const removeBtn = document.createElement('button');
         removeBtn.textContent = 'Remove';
         removeBtn.onclick = function() {
