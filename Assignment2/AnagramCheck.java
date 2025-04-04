@@ -1,7 +1,8 @@
+package Assignment2;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class AnagramCheck_Assignment2 {
+public class AnagramCheck {
     public static void main (String[] args){
         
         Scanner sc = new Scanner(System.in);
